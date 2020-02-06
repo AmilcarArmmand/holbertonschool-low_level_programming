@@ -11,7 +11,7 @@ int main(void)
 
 	for (num = 'a'; num <= 'z'; num++)
 	{
-		if (num != 'q' || num != 'e')
+		if (num != 'q' && num != 'e')
 		putchar(num);
 	}
 	putchar('\n');
