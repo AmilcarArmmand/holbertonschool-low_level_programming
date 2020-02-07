@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 /**
- * main - fundtion that prints all singe digits of base 10
+ * main - function that prints all singe digits of base 10
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int num;
+	char i;
 
-	num = 0;
-	while (num <= 9)
+	i = '0';
+	while (i <= '9')
 	{
-		putchar(num);
-		num++;
+		putchar(i);
+		i++;
 	}
 
 	putchar('\n');
