@@ -16,15 +16,19 @@ int main(void)
 	{
 		for (t = 0; t < 10; t++)
 		{
-			for (i = 0; i < 10; i++);
+			for (i = 0; i < 10; i++)
 			{
-				if (h < t)
+				if (h < t && t < i)
 				{
 					putchar(h + '0');
 					putchar(t + '0');
 					putchar(i + '0');
-					putchar(',');
-					putchar(' ');
+
+					if (h < 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
