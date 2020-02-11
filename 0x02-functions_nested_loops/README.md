@@ -1,0 +1,20 @@
+# 0x02-functions_nested_loops
+- 0-holberton.c A program that prints Holberton followed by a new line.
+- 100-main.c
+- 100-times_table.c A function that prints the n times table.
+- 101-natural.c
+- 102-fibonacci.c
+- 103-fibonacci.c
+- 104-fibonacci.c
+- 10-add.c A function that adds two integers and returns the sum.
+- 11-print_to_98.c Prototype function that prints all natural numbers from n to 98.
+- 1-alphabet.c Prototype function that prints the alphabet in lowercase.
+- 2-print_alphabet_x10.c Prototype function that prints the alphabet, 10 times.
+- 3-islower.c Prototype function taht prints the alphabet in lowercase.
+- 4-isalpha.c Prototype function that checks for an alphabetic character.
+- 5-sign.c Prototype function that prints the sign of a number.
+- 6-abs.c Prototype function that computes the absolute value of an integer.
+- 7-print_last_digit.c Prototype function that prints the last digit of a number.
+- 8-24_hours.c Prototype function that prints every minute in a day.
+- 9-times_table.c Prototype function that prints the 9 times tables.
+- holberton.h Header file containing function prototypes
