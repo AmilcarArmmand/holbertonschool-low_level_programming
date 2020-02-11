@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "holberton.h"
 
 /**
  * main - Prints Holberton to standard output
@@ -7,7 +7,13 @@
  */
 int main(void)
 {
-	write(1,"Holberton\n",10);
+	char hbtn[9] = "Holberton";
+	int i;
+
+	for (i = 0; i < 9 ; i++)
+		_putchar(hbtn[i]);
+
+	_putchar('\n');
 
 	return (0);
 }
