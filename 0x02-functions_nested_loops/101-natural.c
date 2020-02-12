@@ -13,6 +13,7 @@ int main(void)
 	int sum;
 	int i;
 
+	sum = 0;
 	for (i = 0, num = 1024; i < num; i++)
 		if (i % 3 == 0 || i % 5 == 0 )
 			sum += i;
