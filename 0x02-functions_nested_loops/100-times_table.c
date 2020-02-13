@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * print_times_table - a function that prints n times table, starting with 0.
- *
+ * @n: integer value from main function
  */
 void print_times_table(int n)
 {
@@ -15,9 +15,7 @@ void print_times_table(int n)
 			{
 				prod = num1 * num2;
 				if (num2 == 0)
-				{
 					_putchar('0' + prod);
-				}
 				else if (prod < 10)
 				{
 					_putchar(',');
@@ -46,6 +44,4 @@ void print_times_table(int n)
 			_putchar('\n');
 		}
 	}
-	else
-		return;
 }
