@@ -10,22 +10,22 @@
 int main(void)
 {
 	int i;
-	long int first;
-	long int second;
-	long int sum;
+	double first;
+	double second;
+	double sum;
 
 	first = 0;
 	second = 1;
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 98; i++)
 	{
 		sum = first + second;
 		first = second;
 		second = sum;
-		if (i < 49)
-			printf("%ld, ", sum);
+		if (i < 97)
+			printf("%f, ", sum);
 		else
-			printf("%ld\n", sum);
+			printf("%f\n", sum);
 	}
 	return (0);
 }
