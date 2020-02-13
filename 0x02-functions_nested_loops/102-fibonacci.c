@@ -23,7 +23,7 @@ int main(void)
 		first = second;
 		second = sum;
 		if (i < 49)
-			printf("%ld,", sum);
+			printf("%ld ,", sum);
 		else
 			printf("%ld\n", sum);
 	}
