@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	long int n;
-	long int div;
-	long int largestPrime;
+	long unsigned int n;
+	long unsigned int div;
+	long unsigned int largestPrime;
 
 	n = 612852475143;
 	div = 2;
