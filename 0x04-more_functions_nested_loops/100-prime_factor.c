@@ -14,6 +14,7 @@ int main(void)
 	unsigned long largestPrime;
 
 	n = 612852475143;
+	largestPrime = -1;
 
 	while (n % 2 == 0)
 	{
@@ -28,6 +29,9 @@ int main(void)
 			n = n / div;
 		}
 	}
+	if (n > 2)
+		largestPrime = n;
+
 	printf("%ld\n", largestPrime);
 
 	return (0);
