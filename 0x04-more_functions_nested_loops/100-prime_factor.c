@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Function that finds & prints the largest prime factor of 612852475143
@@ -13,21 +14,21 @@ int main(void)
 	unsigned long largestPrime;
 
 	n = 612852475143;
-	div = 2;
 
-	while (n != 0)
+	while (n % 2 == 0)
 	{
-		if (n % div != 0)
-			div += 1;
-		else
+		largestPrime = 2;
+		n = n / 2;  /* to get an odd value of n */
+	}
+	for (div = 3; div <= sqrt(n); div += 2)
+	{
+		while (n % div == 0)
 		{
-			largestPrime = n;
+			largestPrime = div;
 			n = n / div;
-			if (n == 1)
-				printf("%li\n", largestPrime);
-
 		}
 	}
+	printf("%ld\n", largestPrime);
 
 	return (0);
 }
