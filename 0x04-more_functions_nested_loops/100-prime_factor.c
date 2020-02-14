@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	long int n;
-	long int div;
-	long int largestPrime;
+	unsigned long n;
+	unsigned long div;
+	unsigned long largestPrime;
 
 	n = 612852475143;
 	div = 2;
@@ -24,9 +24,10 @@ int main(void)
 			largestPrime = n;
 			n = n / div;
 			if (n == 1)
-				printf("%ld\n", largestPrime);
+				printf("%li\n", largestPrime);
 
 		}
 	}
+
 	return (0);
 }
