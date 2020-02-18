@@ -1,8 +1,9 @@
 #include "holberton.h"
 
 /**
- * print_rev - a function that prints a string, in reverse, followed by new line
- * @s: the string to print in reverse
+ * print_rev - a function that prints a string, in reverse.
+ * @str: the string to print in reverse
+ *
  * Return: void (No return data)
  */
 void print_rev(char *str)
@@ -16,7 +17,7 @@ void print_rev(char *str)
 		totalElementNumber++;
 	}
 	i = totalElementNumber - 1;
-	for (;i >= 0; i--)
+	for (; i >= 0; i--)
 	{
 		_putchar(str[i]);
 	}
