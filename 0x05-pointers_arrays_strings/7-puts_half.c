@@ -18,7 +18,7 @@ void puts_half(char *str)
 /*	printf("%lu\n", p - str); */
 	i = p - str;
 	if (i % 2 != 0)
-		j = (i - 1) / 2;
+		j = i - (i - 1) / 2;
 	else
 		j = i / 2;
 
