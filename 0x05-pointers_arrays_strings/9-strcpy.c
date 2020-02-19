@@ -10,12 +10,13 @@
 char *_strcpy(char *dest, char *src)
 {
 	int i;  /* counter for elements copied */
+	int j;  /* counter for dest */
 
-	for(i = 0; src[i] != '\0'; i++)
+	for(i = 0, j = 0; src[i] != '\0'; i++, j++)
 	{
-		dest[i] = src[i];
+		dest[j] = src[i];
 	}
-	dest[i + 1] = '\0';
+	dest[j++] = '\0';
 
 	return (dest);
 }
