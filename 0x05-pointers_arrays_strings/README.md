@@ -9,6 +9,8 @@ Learning objectives for this project:
 * How to use strings and how to manipulate them
 * Scope of variables
 
+
+## Tasks  :page_with_curl:
 ---
 
 ### [0-reset_to_98.c](./0-reset_to_98.c)
@@ -60,5 +62,5 @@ Learning objectives for this project:
 
 ---
 
-## Author
+## Author :black_nib:
 * **Amilcar Armmand** - [AmilcarArmmand](https://github.com/AmilcarArmmand)
