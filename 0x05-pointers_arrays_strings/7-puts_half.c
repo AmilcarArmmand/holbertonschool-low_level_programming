@@ -15,10 +15,10 @@ void puts_half(char *str)
 	p = str;
 	while (*p != '\0')
 		p++;
-/*	printf("%lu\n", p - str); */
+
 	i = p - str;
 	if (i % 2 != 0)
-		j = i - (i - 1) / 2;
+		j = (i - 1) / 2;
 	else
 		j = i / 2;
 
