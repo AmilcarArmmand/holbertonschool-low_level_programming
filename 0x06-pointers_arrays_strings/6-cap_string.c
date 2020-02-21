@@ -22,12 +22,11 @@ char *cap_string(char *s)
 	{
 		for (j = 0; j < 13; j++)
 		{
-			if (separators[j] == s[i])
+			if (s[0] >= 'a' && s[0] <= 'z')
+				s[0] -= 32;
+			else if (separators[j] == s[i])
 			{
-				if (s[0] >= 'a' && s[0] <= 'z')
-					s[0] -= 32;
-
-				else if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
 					s[i + 1] -= 32;
 			}
 		}
