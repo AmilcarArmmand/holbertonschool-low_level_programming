@@ -9,19 +9,19 @@
 char *leet(char *s)
 {
 	int i;
+	int j;
+	char leet[] = "aAeEoOtTlL4433007711";
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i]; i++)
 	{
-		if (s[i] == 'a' || 'A')
-			s[i] = '0' + 4;
-		else if (s[i] == 'e' || 'E')
-			s[i] = '0' + 3;
-		else if (s[i] == 'o' || 'O')
-			s[i] = '0';
-		else if (s[i] == 't' || 'T')
-			s[i] = '0' + 7;
-		else if (s[i] == 'l' || 'L')
-			s[i] = '0' + 1;
+		for (j = 0; leet[j]; j++)
+		{
+			if (s[i] == leet[j])
+			{
+				s[i] = leet[j + 10];
+				break;
+			}
+		}
 	}
 	return (s);
 }
