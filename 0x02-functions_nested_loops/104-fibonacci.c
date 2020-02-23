@@ -10,7 +10,9 @@
 int main(void)
 {
 	int n;
-	long double first, second;
+
+	long double first;
+	long double second;
 	long double fibonacci;
 
 	first = 0; /* by definition */
