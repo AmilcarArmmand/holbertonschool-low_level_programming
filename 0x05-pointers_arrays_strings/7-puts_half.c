@@ -8,22 +8,19 @@
  */
 void puts_half(char *str)
 {
-	char *p;
 	int i; /* length of string */
-	int j;
+	int j; /* number of last characters to print */
 
-	p = str;
-	while (*p != '\0')
-		p++;
-
-	i = p - str;
+	for (i = 0; str[i] != '\0'; i++)
+		;
+	j = 0;
 	if (i % 2 != 0)
 		j = (i - 1) / 2;
 	else
 		j = i / 2;
 
-	for (; j <= i && str[j] != '\0' ; j++)
-		_putchar(str[j - 1]);
+	for (; j > 0; j--)
+		_putchar(str[i - j]);
 
 	_putchar('\n');
 }
