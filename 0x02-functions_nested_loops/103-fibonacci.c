@@ -3,7 +3,7 @@
 #include "holberton.h"
 
 /**
- * main - Prints the first 50 Fibonacci numbers
+ * main - prints the sum of the even-numbered Fibonacci numbers under 4,000,000
  *
  * Return: Always 0 (Success)
  */
@@ -12,21 +12,24 @@ int main(void)
 	int i;
 	long int first;
 	long int second;
-	long int sum;
-	long int tsum;
+	long int fibonacci;
+	long int sumofeven;
 
 	first = 0;
 	second = 1;
+	i = 0;
+	sumofeven = 0;
+	fibonacci = 0;
 
-	for (i = 0; i < 35; i++)
+	while (fibonacci < 4000000)
 	{
-		sum = first + second;
+		fibonacci = first + second;
 		first = second;
-		second = sum;
-		if (sum % 2 == 0)
-			tsum += sum;
-
-		printf("%ld\n", tsum);
+		second = fibonacci;
+		if (fibonacci % 2 == 0)
+			sumofeven += fibonacci;
+		i++;
 	}
+	printf("%ld\n", sumofeven);
 	return (0);
 }
