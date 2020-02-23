@@ -3,29 +3,29 @@
 #include "holberton.h"
 
 /**
- * main - Prints the first 50 Fibonacci numbers
+ * main - Prints the first 98 Fibonacci numbers
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i;
-	double first;
-	double second;
-	double sum;
+	int n;
+	long double first, second;
+	long double fibonacci;
 
-	first = 0;
-	second = 1;
+	first = 0; /* by definition */
+	second = 1; /* by definition */
 
-	for (i = 0; i < 98; i++)
+	for (n = 0; n < 98; n++)
 	{
-		sum = first + second;
+		fibonacci = first + second;
 		first = second;
-		second = sum;
-		if (i < 97)
-			printf("%f, ", sum);
+		second = fibonacci;
+
+		if (n < 97)
+			printf("%.0Lf, ", fibonacci);
 		else
-			printf("%f\n", sum);
+			printf("%.0Lf\n", fibonacci);
 	}
 	return (0);
 }
