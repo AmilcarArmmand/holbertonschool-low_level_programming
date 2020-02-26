@@ -10,11 +10,6 @@
 char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j; /* counters for *haystack and *needle */
-/*	char *hay;  */
-/*	char *need;  */
-
-/*	hay = haystack; */
-/*	need = needle;  */
 
 	for (i = 0; haystack[i]; i++)  /* same as *(hay + i)  */
 	{
