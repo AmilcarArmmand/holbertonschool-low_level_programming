@@ -34,5 +34,5 @@ What I learned from this project:
 
 ---
 
-## Author  :black-nib:
+## Author  :black_nib:
 * **Amilcar Armmand** - [AmilcarArmmand](https://github.com/AmilcarArmmand)
