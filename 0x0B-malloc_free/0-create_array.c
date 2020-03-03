@@ -19,5 +19,5 @@ char *create_array(unsigned int size, char c)
 		newarray[i] = c;
 	}
 
-	return (((size == 0 || !newarray) ? NULL : newarray));
+	return (((size == 0 || newarray == NULL) ? NULL : newarray));
 }
