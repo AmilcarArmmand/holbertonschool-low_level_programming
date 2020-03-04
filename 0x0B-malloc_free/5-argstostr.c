@@ -9,14 +9,15 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j; /* len1, len2; */
+	int i; /* len1, len2; */
+	char *s;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (i = 1; i < ac; i++)
 	{
-/*		while (--ac > 0) */
+		s = *av[i];
 	}
-	return (*av);
+	return (s);
 }
