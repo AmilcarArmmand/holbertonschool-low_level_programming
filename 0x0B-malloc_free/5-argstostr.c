@@ -9,7 +9,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i; /* len1, len2; */
+	int i;
 	char *s;
 
 	if (ac == 0 || av == NULL)
@@ -17,7 +17,7 @@ char *argstostr(int ac, char **av)
 
 	for (i = 1; i < ac; i++)
 	{
-		s = *av[i];
+		s = *av;
 	}
 	return (s);
 }
