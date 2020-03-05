@@ -13,8 +13,7 @@ void *malloc_checked(unsigned int b)
 	buffer = malloc(sizeof(buffer) * b);
 	if (buffer == NULL)
 	{
-		free(buffer);
 		exit(98);
 	}
-	return (((void *)buffer));
+	return (buffer);
 }
