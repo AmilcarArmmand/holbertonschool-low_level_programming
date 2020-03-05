@@ -8,9 +8,9 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	int *buffer;
+	void *buffer;
 
-	buffer = malloc(sizeof(*buffer) * b);
+	buffer = malloc(sizeof(buffer) * b);
 	if (buffer == NULL)
 	{
 		free(buffer);
