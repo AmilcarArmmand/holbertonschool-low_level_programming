@@ -10,7 +10,7 @@ void *malloc_checked(unsigned int b)
 {
 	void *buffer;
 
-	buffer = malloc(sizeof(buffer) * b);
+	buffer = malloc(b);
 	if (buffer == NULL)
 	{
 		exit(98);
