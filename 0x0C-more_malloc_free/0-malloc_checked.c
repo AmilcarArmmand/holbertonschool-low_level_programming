@@ -16,6 +16,5 @@ void *malloc_checked(unsigned int b)
 		free(buffer);
 		exit(98);
 	}
-	free(buffer);
 	return (((void *)buffer));
 }
