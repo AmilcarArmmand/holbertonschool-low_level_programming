@@ -9,11 +9,11 @@
  */
 int main(void)
 {
-	int n;
+	unsigned long int n;
 
-	long double first;
-	long double second;
-	long double fibonacci;
+	unsigned long int first;
+	unsigned long int second;
+	unsigned long int fibonacci;
 
 	first = 0; /* by definition */
 	second = 1; /* by definition */
@@ -25,9 +25,9 @@ int main(void)
 		second = fibonacci;
 
 		if (n < 97)
-			printf("%.0Lf, ", fibonacci);
+			printf("%lu, ", fibonacci);
 		else
-			printf("%.0Lf\n", fibonacci);
+			printf("%lu\n", fibonacci);
 	}
 	return (0);
 }
