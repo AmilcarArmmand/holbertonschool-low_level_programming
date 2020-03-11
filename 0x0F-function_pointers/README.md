@@ -7,7 +7,7 @@ What I learned from this project:
 * What does a function pointer exactly hold
 * Where does a function pointer point to in the virtual memory
 
-## Project Tasks  :wrench:
+## Project Tasks  :computer:
 ---
 
 ### [0. print_name](./0-print_name.c)
