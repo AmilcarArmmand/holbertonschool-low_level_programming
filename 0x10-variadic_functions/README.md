@@ -8,7 +8,7 @@ What I learned from this project:
 * Why and how to use the const type qualifier
 
 
-## Project task  :computer:
+## Project tasks  :computer:
 ---
 
 ### [0. sum_them_all](./0-sum_them_all.c)
