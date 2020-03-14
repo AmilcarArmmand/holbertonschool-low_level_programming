@@ -14,9 +14,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *text;
 
-	if (!(separator))
-		exit(0);
-
 	va_start(arguments, n);
 
 	for (i = 0; i <= n; i++)
