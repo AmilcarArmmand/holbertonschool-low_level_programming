@@ -14,8 +14,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *text;
 
+  /* initialize valist for n number of arguments */
 	va_start(arguments, n);
 
+  /* access all arguments assigned to valist */
 	for (i = 0; i <= n; i++)
 	{
 		text = va_arg(arguments, char *);
@@ -25,9 +27,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("nil");
 
 		if (i < (n - 1) && separator != NULL)
-		{
 			printf("%s", separator);
-		}
 	}
 	printf("\n");
 	va_end(arguments);
