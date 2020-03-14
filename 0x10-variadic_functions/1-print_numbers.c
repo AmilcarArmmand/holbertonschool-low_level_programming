@@ -13,8 +13,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list arguments;
 	unsigned int i;
 
-	if (!(separator))
-		exit(0);
 /* initialize valist for n number of arguments */
 	va_start(arguments, n);
 /* access all the arguments assigned to valist */
@@ -22,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		printf("%d", va_arg(arguments, unsigned int));
 
-		if (i < (n - 1))
+		if (i < (n - 1) && separator != NULL)
 			printf("%s", separator);
 		else
 		       printf("\n");
