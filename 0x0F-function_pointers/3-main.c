@@ -25,11 +25,11 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(99);
 	}
-/*	if (b == 0 && *operation == "/") */
-/*	{ */
-/*		printf("Error\n"); */
-/*		exit(100); */
-/*	} */
+	if (b == 0 && (argv[2][0] == '/' || argv[2][0] == '%'))
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
 	printf("%d\n", operation(a, b));
 	return (0);
