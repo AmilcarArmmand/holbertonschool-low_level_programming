@@ -54,25 +54,27 @@ void print_string(va_list arguments)
 void print_all(const char * const format, ...)
 {
 	va_list arguments;
-	unsigned int i;
+/*	unsigned int i; */
+	char *text;
 
-	i = 0;
+/*	i = 0; */
 
-	dtype fmt[] = {
-		{"%c", print_char},
-		{"%d", print_integer},
-		{"%f", print_float},
-		{"%s", print_string},
-		{NULL, NULL}
-	};
+/*	dtype fmt[] = { */
+/*		{"%c", print_char}, */
+/*		{"%d", print_integer}, */
+/*		{"%f", print_float}, */
+/*		{"%s", print_string}, */
+/*		{NULL, NULL} */
+/*	}; */
   /* initialize valist for n number of arguments */
 	va_start(arguments, format);
-	while (dtype[i].typedata != NULL)
+	text = va_arg(arguments, char *);
+/*	while (dtype[i].typedata != NULL) */
 	{
-		if (!(strcmp(dtype[i].typedata, format)))
-			dtype[i].printfunction(arguments);
+/*		if (!(strcmp(dtype[i].typedata, format))) */
+/*			dtype[i].printfunction(arguments); */
 	}
-}
+	printf("%s\n", text);
 	printf("\n");
 	va_end(arguments);
 }
