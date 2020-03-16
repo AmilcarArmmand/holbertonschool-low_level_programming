@@ -69,7 +69,6 @@ void print_all(const char * const format, ...)
   /* initialize valist for n number of arguments */
 	va_start(arguments, format);
 	text = va_arg(arguments, char *);
-/*	while (dtype[i].typedata != NULL) */
 	{
 /*		if (!(strcmp(dtype[i].typedata, format))) */
 /*			dtype[i].printfunction(arguments); */
