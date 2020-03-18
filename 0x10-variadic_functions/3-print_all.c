@@ -17,7 +17,7 @@ void print_all(const char * const format, ...)
 	fmt = format;
 	while (format)
 	{
-		switch (*fmt++)
+		switch (*(fmt++))
 		{
 		case 'c':
 			printf("%c\n", va_arg(ap, int));
@@ -34,7 +34,13 @@ void print_all(const char * const format, ...)
 		case '\0':
 			printf("(nil)");
 			break;
+		default:
+			fmt++;
+			break;
 		}
+/*		break; */
+		fmt++;
+		break;
 	}
 	va_end(ap);
 	printf("\n");
