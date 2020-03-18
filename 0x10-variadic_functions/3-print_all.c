@@ -9,23 +9,18 @@
  */
 void print_all(const char * const format, ...)
 {
-/*	va_list ap; */
-/*	int i; */
-/*	char c; */
-/*	int d; */
-/*	float f; */
-/*	char *s; */
-
+	va_list ap;
+	const char *fmt;
 
   /* initialize va_list of arguments */
 	va_start(ap, format);
-
+	fmt = format;
 	while (format)
 	{
-		switch (*format++)
+		switch (*fmt++)
 		{
 		case 'c':
-			printf("%c\n", va_arg(ap, char));
+			printf("%c\n", va_arg(ap, int));
 			break;
 		case 'i':
 			printf("%d\n", va_arg(ap, int));
@@ -36,10 +31,11 @@ void print_all(const char * const format, ...)
 		case 's':
 			printf("%s\n", va_arg(ap, char *));
 			break;
+		case '\0':
+			printf("(nil)");
+			break;
 		}
-/*		if (fmt[i].typedata == format) */
-/*			text = fmt[i].printfunction; */
 	}
-	printf("\n");
 	va_end(ap);
+	printf("\n");
 }
