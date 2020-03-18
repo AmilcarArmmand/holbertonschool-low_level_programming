@@ -6,9 +6,9 @@ section .data
 
 _start:
 	mov rax, text
-	call _print
+	call _write
 	mov rax, text2
-	call _print
+	syscall _write
 
 	mov rax, 60
 	mov rdi, 0
