@@ -3,46 +3,46 @@
 
 /**
  * print_char - function that prints a char
- * @arguments: char argument type
+ * @ap: char argument type
  *
  * Return: void (No data type returned)
  */
-void print_char(va_list arguments)
+char print_char(va_list ap)
 {
-	printf("%c\n", va_arg(arguments, int));
+	return (printf("%c\n", va_arg(ap, char)));
 }
 
 /**
- * print_integer - function that prints a char
- * @arguments: integer argument type
+ * print_integer - function that prints a integer
+ * @ap: integer argument type
  *
  * Return: void (No data type returned)
  */
-void print_integer(va_list arguments)
+int print_integer(va_list ap)
 {
-	printf("%d\n", va_arg(arguments, int));
+	printf("%d\n", va_arg(ap, int));
 }
 
 /**
  * print_float - function that prints a char
- * @arguments: float argument type
+ * @ap: float argument type
  *
  * Return: void (No data type returned)
  */
-void print_float(va_list arguments)
+void print_float(va_list ap)
 {
-	printf("%f\n", va_arg(arguments, double));
+	printf("%f\n", va_arg(ap, double));
 }
 
 /**
  * print_string - function that prints a char
- * @arguments: string argument type
+ * @ap: string argument type
  *
  * Return: void (No data type returned)
  */
-void print_string(va_list arguments)
+void print_string(va_list ap)
 {
-	printf("%s\n", va_arg(arguments, char *));
+	printf("%s\n", va_arg(ap, char *));
 }
 
 /**
@@ -53,27 +53,32 @@ void print_string(va_list arguments)
  */
 void print_all(const char * const format, ...)
 {
-	va_list arguments;
-/*	unsigned int i; */
-	char *text;
+	va_list ap;
+	int i;
+	char c;
+	int d;
+	float f;
+	char *s;
+	void (*text)(va_list ap);
 
 /*	i = 0; */
+	dtype fmt[] = {
+		{"c", print_char},
+		{"d", print_integer},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
+	};
+  /* initialize va_list of arguments */
+	va_start(ap, format);
 
-/*	dtype fmt[] = { */
-/*		{"%c", print_char}, */
-/*		{"%d", print_integer}, */
-/*		{"%f", print_float}, */
-/*		{"%s", print_string}, */
-/*		{NULL, NULL} */
-/*	}; */
-  /* initialize valist for n number of arguments */
-	va_start(arguments, format);
-	text = va_arg(arguments, char *);
+	while (format)
 	{
-/*		if (!(strcmp(dtype[i].typedata, format))) */
-/*			dtype[i].printfunction(arguments); */
+		if (fmt[i].typedata == format)
+			text = fmt[i].printfunction;
 	}
-	printf("%s\n", text);
+
+	printf("%d\n", text[i]);
 	printf("\n");
-	va_end(arguments);
+	va_end(ap);
 }
