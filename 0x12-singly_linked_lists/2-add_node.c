@@ -18,17 +18,16 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 /* put data in the node */
 	newNode->str = strdup(str);
-/* get length of newNode-str */
-	for (length = 0; *(newNode->str + length); length++)
-		;
-	newNode->len = length;
-	newNode->next = (*head);  /* make the next of new node as head */
-
 	if (newNode->str == NULL)
 	{
 		free(newNode);
 		return (NULL);
 	}
+/* get length of newNode-str */
+	for (length = 0; *(newNode->str + length); length++)
+		;
+	newNode->len = length;
+	newNode->next = (*head);  /* make the next of new node as head */
 /*	printf("[%d] %s\n", newNode->len, newNode->str); */
 /* move the head to point to the new node */
 	*head = newNode;
