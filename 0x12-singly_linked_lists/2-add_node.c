@@ -9,29 +9,29 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
+	int length; /* counter for length of char pointer *str */
+/*	list_t *beginning;  */
+	list_t *newNode;
 /* create and allocade memory for new node */
-	list_t *new_node;
-
-	if (head == NULL)
-		return (NULL);
-	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
+	newNode = malloc(sizeof(list_t));
+	if (newNode == NULL)
 		return (NULL);
 /* put data in the node */
-	while (head != NULL)
+	newNode->str = strdup(str);
+/* get length of newNode-str */
+	for (length = 0; *(newNode->str + length); length++)
+		;
+	newNode->len = length;
+	newNode->next = (*head);  /* make the next of new node as head */
+
+	if (newNode->str == NULL)
 	{
-		new_node->str = strdup(str);
-		if ((!new_node))
-		{
-			free(new_node);
-			return (NULL);
-		}
+		free(newNode);
+		return (NULL);
 	}
-/* make the ->next of the new node as head */
-	new_node->next = *head;
-
+/*	printf("[%d] %s\n", newNode->len, newNode->str); */
 /* move the head to point to the new node */
-	*head = new_node;
+	*head = newNode;
 
-	return (new_node);
+	return (*head);
 }
