@@ -10,7 +10,6 @@
 list_t *add_node(list_t **head, const char *str)
 {
 	int length; /* counter for length of char pointer *str */
-/*	list_t *beginning;  */
 	list_t *newNode;
 /* create and allocade memory for new node */
 	newNode = malloc(sizeof(list_t));
