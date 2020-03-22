@@ -10,29 +10,38 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 	int length; /* counter for length of char pointer *str */
-	list_t *newNode;
-/* create and allocade memory for new node */
-	newNode = malloc(sizeof(list_t));
-	if (newNode == NULL)
+	list_t *new;
+	list_t *tail;
+
+	tail = *head;
+/* allocade memory for new node */
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
 		return (NULL);
 /* put data in the node */
-	newNode->str = strdup(str);
-	if (newNode->str == NULL)
+	new->str = strdup(str);
+	if (new->str == NULL)
 	{
-		free(newNode);
+		free(new);
 		return (NULL);
 	}
-/* get length of newNode-str */
-	for (length = 0; *(newNode->str + length); length++)
+/* get length of newNode->str and assign to len */
+	for (length = 0; *(new->str + length); length++)
 		;
-	newNode->len = length;
-if
-
-
-/* make the next of new node as head */
-	(newNode->next) = (*head);
-/* move the head to point to the new node */
-	*head = newNode;
-
+	new->len = length;
+/* make the next of new node as NULL (tail) */
+	new->next = NULL;
+/* if list is empty, make newNode head */
+	if (*head != NULL)
+	{
+		printf("%s\n", new->str);
+		*head = (*head)->next;
+		printf("%s\n", tail->str);
+	}
+	if (*head == NULL)
+	{
+		*head = new;
+		printf("head was NULL %s\n", new->str);
+	}
 	return (*head);
 }
