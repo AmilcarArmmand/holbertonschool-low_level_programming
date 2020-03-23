@@ -20,21 +20,26 @@ int _strlen(char *s)
 
 /**
 * _strdup - function that duplicates a string, including the null byte
-* @copy: copy of source string
 * @source: source string that will be copied
 *
 * Return: pointer to copied string.
 */
 
-char _strdup(char *copy, char *source)
+char *_strdup(char *source)
 {
 	int i, len;
+	char *copy;
 
-	while (*source++)
+	len = 0;
+	while (source[len] != '\0')
 		len++;
-	for (i = 0; i <= len ; i++)
+	copy = malloc((len + 1) * sizeof(char));
+	if (!copy)
+		return (NULL);
+	for (i = 0; i < len ; i++)
 		copy[i] = source[i];
-	return (*copy);
+	copy[len] = '\0';
+	return (copy);
 }
 
 /**
@@ -52,27 +57,21 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog = malloc(sizeof(dog_t));
 	if (new_dog == NULL)
 	{
-		free(new_dog);
 		return (NULL);
 	}
-	new_dog->name = malloc(sizeof(new_dog->name));
+	new_dog->name = _strdup(name);
 	if (name == NULL)
 	{
-		free(new_dog->name);
 		free(new_dog);
 		return (NULL);
 	}
-	new_dog->name = malloc(sizeof(new_dog->owner));
+	new_dog->age = age;
+	new_dog->owner = _strdup(owner);
 	if (owner == NULL)
 	{
 		free(new_dog->name);
-		free(new_dog->owner);
 		free(new_dog);
 		return (NULL);
 	}
-	new_dog->name = name;
-	new_dog->age = age;
-	new_dog->owner = owner;
-	free(new_dog);
 	return (new_dog);
 }
