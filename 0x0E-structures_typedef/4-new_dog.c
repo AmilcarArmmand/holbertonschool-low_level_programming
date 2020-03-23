@@ -4,6 +4,40 @@
 #include <string.h>
 
 /**
+* _strlen - function that returns the length of a string
+* @s: pointer to string
+*
+* Return: the lenght of the string
+*/
+int _strlen(char *s)
+{
+	int len;
+
+	for (len = 0; s[len]; s++)
+		len++;
+	return (len);
+}
+
+/**
+* _strdup - function that duplicates a string, including the null byte
+* @copy: copy of source string
+* @source: source string that will be copied
+*
+* Return: pointer to copied string.
+*/
+
+char _strdup(char *copy, char *source)
+{
+	int i, len;
+
+	while (*source++)
+		len++;
+	for (i = 0; i <= len ; i++)
+		copy[i] = source[i];
+	return (*copy);
+}
+
+/**
  * new_dog - a function that creates a new struct.
  * @name: name component of struct.
  * @age: age component of struct.
@@ -39,6 +73,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog->name = name;
 	new_dog->age = age;
 	new_dog->owner = owner;
-
+	free(new_dog);
 	return (new_dog);
 }
