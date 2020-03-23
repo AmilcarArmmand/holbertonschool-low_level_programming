@@ -39,6 +39,7 @@ char *_strdup(char *source)
 	for (i = 0; i < len ; i++)
 		copy[i] = source[i];
 	copy[len] = '\0';
+	free(copy);
 	return (copy);
 }
 
@@ -60,16 +61,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	new_dog->name = _strdup(name);
-	if (name == NULL)
+	if (name == NULL || _strdup(name) == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
 	new_dog->age = age;
 	new_dog->owner = _strdup(owner);
-	if (owner == NULL)
+	if (owner == NULL || _strdup(owner) == NULL)
 	{
 		free(new_dog->name);
+		free(new_dog->owner);
 		free(new_dog);
 		return (NULL);
 	}
