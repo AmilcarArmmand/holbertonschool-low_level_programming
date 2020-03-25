@@ -14,7 +14,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *temp;
 	unsigned int i;
 
-	if (!head || !*head)   /* check if list or head node exists */
+	if (!head)   /* check if list exists */
 		return (NULL);
 
 	new = malloc(sizeof(listint_t));    /* allocate new node */
@@ -22,7 +22,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	new->n = n;  /* add data */
 	temp = *head;   /* temp variable used to traverse the linked list */
-	if (idx == 0)
+	if (idx == 0 && !*head)
 	{
 		new->next = temp;
 		*head = new;
