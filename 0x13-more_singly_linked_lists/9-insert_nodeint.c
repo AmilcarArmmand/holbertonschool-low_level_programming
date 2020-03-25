@@ -14,28 +14,29 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *temp;
 	unsigned int i;
 
-	if (!head || !*head)
+	if (!head || !*head)   /* check if list or head node exists */
 		return (NULL);
-	temp = *head;
-	new = malloc(sizeof(listint_t));  /* allocate new node */
+
+	new = malloc(sizeof(listint_t));    /* allocate new node */
 	if (new == NULL)
 		return (NULL);
 	new->n = n;  /* add data */
+	temp = *head;   /* temp variable used to traverse the linked list */
 	if (idx == 0)
 	{
 		new->next = temp;
 		*head = new;
-		return (new);
 	}
-
-	for (i = 1; i < idx - 1; i++)
+	else
 	{
-		if (temp->next == NULL)
-			return (NULL);
-		temp = temp->next;
+		for (i = 1; i < idx - 1 && temp != NULL; i++)
+		{
+			temp = temp->next;
+		}
+/* Make new node point to next node of pointer temp */
+		new->next = temp->next;
+/* Make pointer temp point to newly created node in the linked list */
+		temp->next = new;
 	}
-	new->next = temp->next;
-	temp->next = new;
-
 	return (new);
 }
