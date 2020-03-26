@@ -36,7 +36,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			i++;
 		}
 		if (cursor == NULL)
-		return (-1);
+			return (-1);
 		temp = cursor->next;
 		cursor->next = temp->next;
 		temp->next = NULL;
@@ -44,13 +44,3 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (1);
 	}
 }
-/* if the index is zero delete the head */
-/* if the *head is null return -1 */
-/* save oldhead to temp */
-/* save head to head->next */
-/* free old head return 1 */
-/* loop to get to index to delete (same as 9) */
-/* update node before deletion */
-/* change last nodes->next */
-/* free deleted node */
-/* return success */
