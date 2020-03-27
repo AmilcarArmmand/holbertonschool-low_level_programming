@@ -11,12 +11,11 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i;
+	if (!(n >> index))
+		return (-1);
 
-	for (i = 0; i <= index; i++)
-	{
-/*		printf("%lu\n", n); */
-		n = n >> 1;
-	}
-	return ((n & 1) ? 1 : 0);
+	if ((n >> index) & 1)
+		return (1);
+	else
+		return (0);
 }
