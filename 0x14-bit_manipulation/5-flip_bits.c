@@ -12,8 +12,8 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int bits;
-	unsigned int temp;
+	unsigned long int bits;
+	unsigned long int temp;
 /* variable to store the number of bits flipped  */
 	bits = 0;
 /* Exclusive-OR (XOR) numbers to find amount of different bits */
