@@ -12,7 +12,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 /* check that the index is less than the size of data type used */
 	if (index > sizeof(n) * 7)
 		return (-1);
-/* shift the bit at index to 1 */
+/* left shift index number of positions and set that bit to 1 */
 	*n = *n | 1 << index;
 	return (1);
 }
