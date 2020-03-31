@@ -34,7 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 /* if write fails or does not write the expected amount of bytes, return 0 */
-	transcribe = write(STDOUT_FILENO, buffer, letters);
+	transcribe = write(STDOUT_FILENO, buffer, peruse);
 	if (transcribe == -1)
 	{
 		free(buffer);
@@ -46,5 +46,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(buffer);
 	close(fd);
 /* return the actual number of letters it could return and print */
-	return (peruse);
+	return (transcribe);
 }
