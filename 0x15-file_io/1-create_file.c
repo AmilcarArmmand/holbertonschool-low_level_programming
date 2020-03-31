@@ -25,7 +25,7 @@ int create_file(const char *filename, char *text_content)
 		text_content = "";
 
 /* get the size of text_content with _strlen */
-	writ = write(fd, text_content, _strlen(text_content) + 1);
+	writ = write(fd, text_content, _strlen(text_content));
 
 /* if write fails, return -1 */
 	if (!writ)
