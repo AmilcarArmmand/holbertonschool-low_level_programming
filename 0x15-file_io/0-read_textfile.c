@@ -13,7 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;   /* file descriptor */
 	char *buffer;  /* buffer to store size_t letters */
-	size_t peruse, transcribe; /* size_t read and size_t  write amounts */
+	ssize_t peruse, transcribe; /* read and write amounts in ssize_t */
 /* if the filename is NULL, return 0 */
 	if (filename == NULL)
 		return (0);
@@ -27,20 +27,24 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	peruse = read(fd, buffer, letters);
-	if (!peruse)
+	if (peruse == -1)
 	{
 		free(buffer);
+		close(fd);
 		return (0);
 	}
 /* if write fails or does not write the expected amount of bytes, return 0 */
 	transcribe = write(STDOUT_FILENO, buffer, letters);
-	if (!transcribe)
+	if (transcribe == -1)
 	{
 		free(buffer);
+		close(fd);
 		return (0);
 	}
+	if (peruse > transcribe)
+		return (0);
 	free(buffer);
 	close(fd);
 /* return the actual number of letters it could return and print */
-	return (transcribe);
+	return (peruse);
 }
