@@ -1,15 +1,14 @@
-	global _start
+section .data
 
-	section .text
-_start:	mov rax, 1
-	mov rdi, 1
-	mov rsi, message
-	mov rdx, 13
-	syscall
-	mov rax, 60
-	xor rdi, rdi
-	syscall
+	message db "Hello, Holberton", 10
 
+section .text
 
-	section .data
-message:	 db "Hello, Holberton", 10
+global _start
+main:
+
+	mov rax, 1 		;message length
+	mov rdi, 1 		;message to write
+	mov rsi, message 		;file descriptor (stdout)
+	mov rdx, 14 		;system call number (sys_write)
+	syscall			;call kernel
