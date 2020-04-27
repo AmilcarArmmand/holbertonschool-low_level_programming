@@ -8,27 +8,18 @@
  */
 int _atoi(char *s)
 {
-	int i; /* ascii number*/
-	int j, k; /* counters */
-	int n;
-	int sign; /* sign of the asci number */
+	int i, n; /* counters */
+	int sign; /* sign of the number */
 
-	array[] = {' ', '.', ' ;', ':', '#', '(', ')', '?', '!'};
-
+	sign = 1;
 /* skip whitespace and symbols */
-	for (j = 0; s[j]; j++)
+	for (i = 0; (s[i] < '0' || s[i] > '9') && s[i] != '\0'; i++)
 	{
-		for (k = 0; array[k] < 9; k++)
-		{
-			if (s[j] == array[k])
-				j++;
-		}
-
+		sign = (s[i] == '-') ? -1 : 1; /* account for all the signs */
 	}
-	n = 0;
-	for (i = 0; 
-	for (i = 0; s[i] >= '0' && s[i] <= '9'; ++i)
+
+	for (n = 0; s[i] >= '0' && s[i] <= '9'; ++i)
 		n = 10 * n + (s[i] - '0');
 
-	return (n);
+	return (sign * n);
 }
