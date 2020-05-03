@@ -9,40 +9,31 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	unsigned int i;
-	listint_t *temp; /* pointer to node that needs to be removed */
-	listint_t *cursor;
+	listint_t *temp; /* pointer to node to delete */
+	listint_t *cursor; /* pointer to node to traverse the list */
 
-	if (head == NULL)
+	temp = *head;
+	cursor = *head;
+
+	if (*head == NULL)
 		return (-1);
-	temp = *head; /* node to delete at index */
-	cursor = *head; /* variable used to traverse the linked list */
-	if (index == 0 && *head == NULL)
-		return (-1);
-	if (index == 0 && temp->next == NULL)
+
+	if (index == 0)
 	{
-		*head = NULL;
+		*head = (*head)->next;
 		free(temp);
 		return (1);
 	}
-	else
+	for (; index > 0; index--)
 	{
-		i = 0;
-		while (cursor != NULL)
-		{
-			if (i == index - 1)
-				break;
-			temp = temp->next, cursor = cursor->next;
-			i++;
-		}
-		if (cursor == NULL)
+		if (temp->next == NULL)
 			return (-1);
-		temp = cursor->next;
-		cursor->next = temp->next;
-		temp->next = NULL;
-		free(temp);
-		if (cursor->next == NULL)
-			cursor->next = NULL;
-		return (1);
+		temp = temp->next;
 	}
+
+	temp = cursor->next;
+	cursor->next = temp->next;
+	free(temp);
+
+	return (1);
 }
