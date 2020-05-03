@@ -11,6 +11,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *temp; /* pointer to node to delete */
 	listint_t *cursor; /* pointer to node to traverse the list */
+	unsigned int i;
 
 	temp = *head;
 	cursor = *head;
@@ -24,7 +25,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
-	for (; index > 0; --index)
+	for (i = 0; i < (index - 1); i++)
 	{
 		if (cursor->next == NULL)
 			return (-1);
