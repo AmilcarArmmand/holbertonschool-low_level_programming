@@ -1,3 +1,3 @@
 #!/bin/bash
-LD_PRELOAD=$PWD/linux-vdso.so.1
-ldconfig gm
+gcc -shared -fPIC unrandom.c -o unrandom.so
+export LD_PRELOAD=$PWD/linux-vdso.so.1

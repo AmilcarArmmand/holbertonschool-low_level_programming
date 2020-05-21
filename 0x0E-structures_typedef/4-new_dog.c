@@ -1,4 +1,4 @@
-#include "dog.h"
+ #include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,8 +13,8 @@ int _strlen(char *s)
 {
 	int len;
 
-	for (len = 0; s[len]; s++)
-		len++;
+	for (len = 0; s[len]; len++)
+		;
 	return (len);
 }
 
@@ -38,7 +38,7 @@ char *_strdup(char *source)
 		return (NULL);
 	for (i = 0; i < len ; i++)
 		copy[i] = source[i];
-	copy[len] = '\0';
+	copy[i] = '\0';
 	return (copy);
 }
 
