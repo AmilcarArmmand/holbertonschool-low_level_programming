@@ -13,7 +13,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	/* create and allocate memory for hash table */
 	ht = malloc(sizeof(hash_table_t) * size);
-	if (ht == NULL)
+	if (ht == NULL || size <= 0)
 		return (NULL);
 
 	/* create and initialize the node in the table with NULL values */
