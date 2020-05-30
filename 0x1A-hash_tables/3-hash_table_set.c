@@ -18,8 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* check failure for ht, key, value and key not empty string */
 	if (!ht || !key || key == '\0' || !value)
 		return (0);
-	/* copy value into new string and check success */
-	duplicated_value = strdup(value);
+	duplicated_value = strdup(value); /* new string and check success */
 	if (!duplicated_value)
 		return (0);
 	printf("key: %s value: %s\n", key, duplicated_value);
@@ -34,7 +33,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 	}
 	printf("%s\n", ht->array[i]->value);
-
 	new_node = malloc(sizeof(hash_node_t));
 	if (!new_node)
 	{
