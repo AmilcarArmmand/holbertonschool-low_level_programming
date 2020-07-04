@@ -1,0 +1,10 @@
+# -*- Makegfile -*-
+
+#target: dependencies
+#	action
+
+SRC = main.c holberton.c
+CC = gcc
+
+all:
+	$(CC) $(SRC) -o holberton
