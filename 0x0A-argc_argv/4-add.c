@@ -10,10 +10,9 @@
  * Return: 0 on success, 1 on error.
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int sum; /* sum of arguments */
-	int i;
+	int sum;
 
 	sum = 0;
 
@@ -21,23 +20,19 @@ int main(int argc, char *argv[])
 		printf("%d\n", 0);
 	else
 	{
-		while (--argc > 0)
+		while (argc-- > 1)
 		{
-			for (i = 1; *argv[i]; i++)
+			if (isdigit(*argv[argc]))
 			{
-				if (isdigit(*argv[i]) && (atoi(*argv) > 0))
-				{
-					sum += atoi(*argv);
-					argv++;
-				}
-				if (!(isdigit(*argv[i])))
-				{
-					printf("Error\n");
-					return (1);
-				}
-				printf("%d\n", sum);
+				sum += atoi(argv[argc]);
+			}
+			else
+			{
+				printf("Error\n");
+				return (1);
 			}
 		}
+		printf("%d\n", sum);
 	}
 	return (0);
 }
