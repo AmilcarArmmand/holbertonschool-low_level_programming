@@ -6,7 +6,7 @@
  * @head: pointer to the head of the dlistint_t linked list
  * @index: index of the node that should be deleted
  *
- * Return: 1 (SUCCESS) or -1 (FAILURE)
+ * Return: 1 (Exit_SUCCESS) or -1 (EXIT_FAILURE)
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
@@ -24,8 +24,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		temp = temp->next;
 	}
 
-/* if temp is the head (index == 0) */
-
 	if (temp == *head)
 	{
 		*head = temp->next;
@@ -38,7 +36,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		if (temp->next != NULL) /* if temp is the last */
 			temp->next->prev = temp->prev;
 	}
-
 	free(temp);
 
 	return (1);
