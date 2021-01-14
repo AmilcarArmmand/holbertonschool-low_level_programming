@@ -9,8 +9,5 @@
  */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-/* h(x) = [h(x) + f(i)] % size of table   */
-	/* f(i) = i, i = 0, 1, 2, ... */
-
 	return (hash_djb2(key) % size);
 }
