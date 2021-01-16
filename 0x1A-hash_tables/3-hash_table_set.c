@@ -36,9 +36,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((const unsigned char *)key, ht->size);
 	current = (ht->array)[index];
-	duplicated_value = strdup(value); /* copy string and check success */
+	duplicated_value = malloc(strlen(value) + 1);
 	if (duplicated_value == NULL)
 		return (0);
+	strcpy(duplicated_value, value);
 	new_node = lookup(current, (const char *)key);
 	if (new_node == NULL)
 	{
@@ -48,14 +49,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free(duplicated_value);
 			return (0);
 		}
-		new_node->key = strdup(key); /* set key and value */
+		new_node->key = malloc(strlen(key) + 1);
 		if (new_node->key == NULL)
 		{
 			free(duplicated_value);
 			free(new_node);
 			return (0);
 		}
-		new_node->key = strdup(key);
+		strcpy(new_node->key, key);
 		new_node->next = current;
 		(ht->array)[index] = new_node;
 	}
