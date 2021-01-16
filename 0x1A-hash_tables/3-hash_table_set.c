@@ -1,6 +1,21 @@
 #include "hash_tables.h"
 
 /**
+ * lookup - function
+ * @np: pointer to the current node of hash table
+ * @key: key to check for in the hash table
+ *
+ * Return: pointer to the node or NULL
+ */
+hash_node_t *lookup(hash_node_t *np,  const char *key)
+{
+	for (; np != NULL; np = np->next)
+		if (strcmp(key, np->key) == 0)
+			return (np);
+	return (NULL);
+}
+
+/**
  * hash_table_set - a function that adds an element to the hash table
  * @ht: pointer to the hash table to add or update
  * @key: key to the hash table
@@ -10,44 +25,43 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node;
+	hash_node_t *new_node = NULL;
+	hash_node_t *current = NULL;
+	/* char *key_dup */
 	char *duplicated_value;
-	unsigned long int i = 0; /* index of linked list */
-	unsigned long int key_location;
+	unsigned long int index;
 
-	/* check failure for ht, key, value and key not empty string */
-	if (!ht || !key || key == '\0' || !value)
+	if (!ht || !key || *key == '\0' || !value)
 		return (0);
-	duplicated_value = strdup(value); /* new string and check success */
-	if (!duplicated_value)
+
+	index = key_index((const unsigned char *)key, ht->size);
+	current = (ht->array)[index];
+	duplicated_value = strdup(value); /* copy string and check success */
+	if (duplicated_value == NULL)
 		return (0);
-	printf("key: %s value: %s\n", key, duplicated_value);
-	/* check exist [i] element of the in hash table */
-	key_location = key_index((unsigned char *)key, ht->size);
-	printf("%lu %lu\n", key_location, key_index((unsigned char *)key, ht->size));
-	for (i = key_location; ht->array[i]->key; i++)
-	{ /* if [i] element is NULL set ht->array[i] = dup_value and exit 1 */
-		if (strcmp(ht->array[i]->key, key) == 0)
+	new_node = lookup(current, (const char *)key);
+	if (new_node == NULL)
+	{
+		new_node = malloc(sizeof(hash_node_t));
+		if (new_node == NULL)
 		{
-			ht->array[i]->value = duplicated_value;
+			free(duplicated_value);
+			return (0);
 		}
+		new_node->key = strdup(key); /* set key and value */
+		if (new_node->key == NULL)
+		{
+			free(duplicated_value);
+			free(new_node);
+			return (0);
+		}
+		new_node->key = strdup(key);
+		new_node->next = current;
+		(ht->array)[index] = new_node;
 	}
-	printf("%s\n", ht->array[i]->value);
-	new_node = malloc(sizeof(hash_node_t));
-	if (!new_node)
-	{
-		free(duplicated_value);
-		return (0);
-	}
-	new_node->key = strdup(key); /* set key and value */
-	if (!new_node->key)
-	{
-		free(duplicated_value);
-		free(new_node);
-		return (0);
-	}
+	else
+		free(new_node->value);
 	new_node->value = duplicated_value;
-	new_node->next = (ht->array)[i];
-	ht->array[i] = new_node;
+
 	return (1);
 }
