@@ -52,7 +52,7 @@ shash_node_t *slookup(shash_node_t *np,  const char *key)
 }
 
 /**
- * hash_table_set - a function that adds an element to the hash table
+ * shash_table_set - a function that adds an element to the hash table
  * @ht: pointer to the hash table to add or update
  * @key: key to the hash table
  * @value: value associated with the key
@@ -104,7 +104,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 }
 
 /**
- * hash_table_get - a function that retrieves a value with a key.
+ * shash_table_get - a function that retrieves a value with a key.
  * @ht: the hash table to search
  * @key: the key to look for in the hash table
  *
@@ -131,7 +131,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 }
 
 /**
- * hash_table_print - a function that prints a hash table
+ * shash_table_print - a function that prints a hash table
  * @ht: pointer to the hash table
  *
  * Return: No value returned, always successful
@@ -167,7 +167,7 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 }
 /**
- * hash_table_print - a function that prints a hash table
+ * shash_table_print_rev - a function that prints a hash table
  * @ht: pointer to the hash table
  *
  * Return: No value returned, always successful
@@ -204,7 +204,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 }
 
 /**
- * hash_table_delete - function that deletes a hash table
+ * shash_table_delete - function that deletes a hash table
  * @ht: pointer to the hash table
  *
  * Return: No value returned.
