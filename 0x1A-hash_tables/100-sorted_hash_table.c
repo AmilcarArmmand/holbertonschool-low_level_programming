@@ -31,10 +31,11 @@ shash_table_t *shash_table_create(unsigned long int size)
 	{
 		ht->array[i] = NULL;
 	}
+	ht->shead = NULL;
+	ht->stail = NULL;
 
 	return (ht);
 }
-
 
 /**
  * slookup - function
@@ -182,7 +183,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 		return;
 
 	printf("{");
-	for (i = 0; i < ht->size; i++)
+	for (i = (ht->size - 1); i > 0; i--)
 	{
 		if (ht->array[i] != NULL)
 		{
