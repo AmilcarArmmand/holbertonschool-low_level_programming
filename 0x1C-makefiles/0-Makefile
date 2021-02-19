@@ -1,7 +1,9 @@
 # -*- Makegfile -*-
 
-#target: dependencies
-#	action
+#target: source dependencies
+#action: create program file from source
+SRC = holberton.c main.c
+PROG = holberton
 
 all:
-	gcc main.c holberton.c -o holberton
+	gcc $(SRC) -o $(PROG)
