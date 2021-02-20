@@ -5,10 +5,8 @@
 
 def island_perimeter(grid):
     """Returns the perimeter of the island
-    
     Args:
-        grid 
-    
+        grid
     Return:
         The perimeter of the island in grid.
     """
@@ -27,4 +25,3 @@ def island_perimeter(grid):
                 if (row > 0 and grid[row - 1][column] == 1):
                     surrounding_edges += 1
     return island_size * 4 - surrounding_edges * 2
-
