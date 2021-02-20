@@ -1,4 +1,4 @@
-# -*- Makegfile -*-
+# -*- Makefile -*-
 
 #target: dependencies
 #	action

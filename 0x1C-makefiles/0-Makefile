@@ -1,4 +1,4 @@
-# -*- Makegfile -*-
+# -*- Makefile -*-
 
 #target: source dependencies
 #action: create program file from source
