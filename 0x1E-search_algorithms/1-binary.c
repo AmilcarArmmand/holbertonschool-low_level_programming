@@ -22,10 +22,10 @@ int binary_search(int *array, size_t size, int value)
 		first = 0;
 		last = size - 1;
 		print_array(array + first, last + 1 - first);
-		while (first < last)
+		while (first <= last)
 		{
 			mid = (first + last) / 2;
-
+			/* print_array(array + first, last + 1 - first); */
 			if (array[mid] < value)
 				first = mid + 1;
 			else if (array[mid] > value)
