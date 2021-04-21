@@ -17,23 +17,24 @@ int binary_search(int *array, size_t size, int value)
 	/* index to the first, last, amd midpoint of the array */
 	size_t first, last, mid;
 
-	if (array != NULL && size > 0)
+	if (array == NULL || size <= 0)
+		return (-1);
+
+
+	first = 0;
+	last = size - 1;
+	print_array(array + first, last + 1 - first);
+	while (first < last)
 	{
-		first = 0;
-		last = size - 1;
+		mid = (first + last) / 2;
+		/* print_array(array + first, last + 1 - first); */
+		if (array[mid] < value)
+			first = mid + 1;
+		else if (array[mid] > value)
+			last = mid - 1;
+		else
+			return (mid);
 		print_array(array + first, last + 1 - first);
-		while (first < last)
-		{
-			mid = (first + last) / 2;
-			/* print_array(array + first, last + 1 - first); */
-			if (array[mid] < value)
-				first = mid + 1;
-			else if (array[mid] > value)
-				last = mid - 1;
-			else
-				return (mid);
-			print_array(array + first, last + 1 - first);
-		}
 	}
 
 	return (-1);
