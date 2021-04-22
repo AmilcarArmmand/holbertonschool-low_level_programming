@@ -1,7 +1,6 @@
 #include "search_algos.h"
 
 void print_array(int *array, size_t size);
-int sub_bin(int *array, size_t size, size_t cur, int value);
 
 /**
  * advanced_binary - recursive binary search for value in an array of integers
@@ -14,46 +13,32 @@ int sub_bin(int *array, size_t size, size_t cur, int value);
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	if (array == NULL)
-		return (-1);
-
-	return (sub_bin(array, size, 0, value));
-}
-
-/**
- * sub_bin - recursive binary search
- *
- * @array: pointer to the first element in array of ints
- * @size: size of sub array
- * @cur: index before pointer of sub array
- * @value: value to search for in array
- *
- * Return: the index of value, or -1
- */
-int sub_bin(int *array, size_t size, size_t cur, int value)
-{
 	size_t mid;
+	int res;
 
-	print_array(array, size);
-	if (size == 1)
+	res = -1;
+	if (array != NULL && size > 0)
 	{
-		if (array[0] == value)
-			return (cur);
+		print_array(array, size);
+		mid = (size - 1) / 2;
+
+		if (array[mid] < value)
+		{
+			res = advanced_binary(array + (mid + 1),
+					      size - (mid + 1), value);
+			if (res >= 0)
+				res += mid + 1;
+		}
+		else if (array[mid] > value)
+			res = advanced_binary(array, mid + 1, value);
+
+		else if (mid == 0 || array[mid - 1] < array[mid])
+			res = mid;
+
 		else
-			return (-1);
+			res = advanced_binary(array, mid + 1, value);
 	}
-	/* mid = (size - 1) / 2; */
-	mid = (size % 2 == 0) ? (size / 2) - 1 : size / 2;
-
-	if (array[mid] == value)
-	{
-		if (mid + cur > 0 && array[mid - 1] == value)
-			return (sub_bin(array, mid + 1, cur, value));
-		return (cur + mid);
-	}
-	if (array[mid] > value)
-		return (sub_bin(array, mid, cur, value));
-	return (sub_bin(array + mid + 1, size - mid - 1, cur + mid + 1, value));
+	return (res);
 }
 
 /**
@@ -61,6 +46,7 @@ int sub_bin(int *array, size_t size, size_t cur, int value)
  *
  * @array: Pointer to the head of the array of integers
  * @size: Number of elements in the array
+ * Return: No data type returned.
  */
 void print_array(int *array, size_t size)
 {
