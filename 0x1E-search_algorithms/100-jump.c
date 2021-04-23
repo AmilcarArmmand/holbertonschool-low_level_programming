@@ -1,7 +1,5 @@
 #include "search_algos.h"
 
-int min_value(int a, int b);
-
 /**
  * jump_search - function that searches for a value in an array of integers
  * @array: a pointer to the first element of the array to search in
@@ -42,17 +40,4 @@ int jump_search(int *array, size_t size, int value)
 	}
 
 	return (-1);
-}
-
-/**
- * min_value - function that compares and returns the minimum of two numbers
- *
- * @a: first number
- * @b: second number
- *
- * Return: the lower number
- */
-int min_value(int a, int b)
-{
-	return ((a < b) ? a : b);
 }
