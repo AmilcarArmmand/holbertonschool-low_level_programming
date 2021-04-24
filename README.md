@@ -1,7 +1,7 @@
 # Low-level Programming and Algorithms
 
 
-This repository contains programs written for the Foundations Year at Holberton School
+## This repository contains programs written for the Foundations Year at Holberton School
 
 * [0x00. C - Hello, World](./0x00-hello_world)
 * [0x01. C - Variables, if, else, while](./0x01-variables_if_else_while)
@@ -26,3 +26,6 @@ This repository contains programs written for the Foundations Year at Holberton 
 * [0x15. C - File io](./0x15-file_io)
 * [0x17. C - Doubly linked lists](./0x17-doubly_linked_lists)
 * [0x18. C - Dynamic libraries](./0x18-dynamic_libraries)
+* [0x1A. C - Hash tables](./0x1A-hash_tables)
+* [0x1C. C - Makefiles](./0x1C-makefiles)
+* [0x1E. C - Search algorithms](./0x1E-search_algorithms)
